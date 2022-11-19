@@ -28,7 +28,7 @@ void Tunnelman::doSomething()
         return;
     
     int ch;
-    //new change
+    //change something
     /*if (getWorld()->getKey(ch) == true)// user hit a key this tick!
     {
         switch (ch)
