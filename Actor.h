@@ -58,7 +58,7 @@ class Collectible: public GraphObject
 //EARTH DECLARE
 class Earth: public GraphObject
 {
-    Earth(int imageID, int startX, int startY);
+    Earth(int startX, int startY,int imageID = TID_EARTH);
     virtual ~Earth();
 };
 #endif // ACTOR_H_

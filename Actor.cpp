@@ -63,3 +63,12 @@ Tunnelman::~Tunnelman(){}
 // END DEF TUNNELMAN
 
 
+//BEGIN DEF EARTH
+Earth::Earth(int startX, int startY,int imageID):GraphObject(imageID, startX, startY, left, 0.5, 3)
+{
+    setVisible(true);
+};
+Earth::~Earth()
+{};
+
+//END DEF EARTH
