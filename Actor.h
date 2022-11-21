@@ -24,7 +24,7 @@ private:
 
 
 
-//Tunnelman Declare
+//TUNNELMAN DECLARE
 const int DEFAULT_HITPOINTS = 10;
 const int DEFAULT_WATER = 5;
 const int DEFAULT_SONARCHARGE = 1;
@@ -33,7 +33,7 @@ const int DEFAULT_GOLDNUGGET = 0;
 class Tunnelman: public Actor
 {
 public:
-    Tunnelman(int imageID, int startX, int startY, int hitPoints = DEFAULT_HITPOINTS, int water = DEFAULT_WATER, int sonarCharge = DEFAULT_SONARCHARGE, int goldNugget = DEFAULT_GOLDNUGGET);
+    Tunnelman(int startX, int startY, int imageID = TID_PLAYER, int hitPoints = DEFAULT_HITPOINTS, int water = DEFAULT_WATER, int sonarCharge = DEFAULT_SONARCHARGE, int goldNugget = DEFAULT_GOLDNUGGET);
     
     virtual ~Tunnelman();
     
@@ -43,5 +43,22 @@ private:
     int m_water; //start with 5
     int m_sonarCharge; //start with 1
     int m_goldNugget; // start with 0
+};
+//
+
+//COLLECTIBLE DECLARE
+class Collectible: public GraphObject
+{
+    Collectible(int imageID, int startX, int startY);
+    
+    virtual ~Collectible();
+};
+//
+
+//EARTH DECLARE
+class Earth: public GraphObject
+{
+    Earth(int imageID, int startX, int startY);
+    virtual ~Earth();
 };
 #endif // ACTOR_H_

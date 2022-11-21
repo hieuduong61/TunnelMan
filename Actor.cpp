@@ -5,7 +5,7 @@
 
 
 
-//Actor Def
+//BEGIN ACTOR DEF
 ///
 Actor::Actor(int imageID, int startX, int startY, int hitPoints):m_hitPoints(hitPoints), GraphObject(imageID, startX, startY){}
 
@@ -14,10 +14,11 @@ Actor::~Actor(){}
 int Actor::getHitpoints() const {return m_hitPoints;}
 
 void Actor::setHitpoints(int value) {m_hitPoints = value;}
+//END ACTOR DEF
 
 
-//Tunnelman Def
-Tunnelman::Tunnelman(int imageID, int startX, int startY, int hitPoints, int water, int sonarCharge, int goldNugget):Actor(imageID, startX, startY, hitPoints), m_water(water), m_sonarCharge(sonarCharge), m_goldNugget(goldNugget)
+//BEGIN TUNNELMAN DEF
+Tunnelman::Tunnelman(int startX, int startY, int imageID,  int hitPoints, int water, int sonarCharge, int goldNugget):Actor(imageID, startX, startY, hitPoints), m_water(water), m_sonarCharge(sonarCharge), m_goldNugget(goldNugget)
 {
     setVisible(true);
 }
@@ -27,9 +28,9 @@ void Tunnelman::doSomething()
     if (getHitpoints() == 0)
         return;
     
-    int ch;
+    /*int ch;
     //change something
-    /*if (getWorld()->getKey(ch) == true)// user hit a key this tick!
+    if (getWorld()->getKey(ch) == true)// user hit a key this tick!
     {
         switch (ch)
         {
@@ -59,4 +60,6 @@ void Tunnelman::doSomething()
 }
 
 Tunnelman::~Tunnelman(){}
+// END DEF TUNNELMAN
+
 
