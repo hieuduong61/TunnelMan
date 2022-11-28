@@ -35,6 +35,7 @@ void Tunnelman::moveToDir(Direction d)
     const int MAX_DOWN = 3;
     const int MAX_LELF = 0;
     const int MAX_RIGHT = 59;
+    //Move to Dir: if tunnelman is not facing to the dir, then do so. If tunnelman is facing to the dir then move by 1 unit. If it reaches the dead end then it won't move.
     switch(d)
     {
         case none:
@@ -80,6 +81,7 @@ void Tunnelman::moveToDir(Direction d)
 
 bool Tunnelman::dig()
 {
+    if ()   
     return true;
 }
 
@@ -100,27 +102,28 @@ void Tunnelman::doSomething()
         {
             case none:
                 break;
-            case left:
+            case KEY_PRESS_LEFT:
                 //implement
                 moveToDir(left);
                 break;
-            case right:
+            case KEY_PRESS_RIGHT:
                 //implement
                 moveToDir(right);
                 break;
-            case up:
+            case KEY_PRESS_UP:
                 //implement
                 moveToDir(up);
                 break;
-            case down:
+            case KEY_PRESS_DOWN:
                 //implement
-                moveToDir(up);
+                moveToDir(down);
                 break;
             case KEY_PRESS_SPACE:
                 //implement
                 break;
             case KEY_PRESS_ESCAPE:
                 //implement
+                getWorld()->decLives();
                 break;
             case KEY_PRESS_TAB:
                 //implement
