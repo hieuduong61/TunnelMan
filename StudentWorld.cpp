@@ -11,6 +11,25 @@ Actor* StudentWorld::get_Tunnelman() {
     return m_player;
 }
 
+StudentWorld::~StudentWorld()
+{
+    for (int x = 0; x < 64; x++) {
+        for (int y = 0; y < 60; y++) {
+            delete m_earth[x][y];
+            m_earth[x][y] = nullptr;
+        }
+    }
+    
+    //destruct Actor
+    vector<Actor*>::iterator itr = m_actors.begin();
+    while (itr != m_actors.end())
+    {
+        delete (*itr);
+        (*itr) = nullptr;
+        ++itr;
+    }
+}
+
 void StudentWorld::update_stage_info() {
     int score = getScore();
     int level = getLevel();
@@ -87,22 +106,39 @@ int StudentWorld::move(){
     // This code is here merely to allow the game to build, run, and terminate after you hit enter a few times.
     // Notice that the return value GWSTATUS_PLAYER_DIED will cause our framework to end the current level.
     update_stage_info();
-    vector<Actor*>::iterator itr = m_actors.begin();
-    while (itr != m_actors.end())
+    if (!isGameOver())
     {
-        (*itr)->doSomething();
-        ++itr;
+        vector<Actor*>::iterator itr = m_actors.begin();
+        while (itr != m_actors.end())
+        {
+            (*itr)->doSomething();
+            ++itr;
+        }
+        return GWSTATUS_CONTINUE_GAME;
     }
-
-    return GWSTATUS_CONTINUE_GAME;
+    else
+    {
+        return GWSTATUS_PLAYER_DIED;
+    }
 }
 
 void StudentWorld::cleanUp(){
     for (int x = 0; x < 64; x++) {
         for (int y = 0; y < 60; y++) {
             delete m_earth[x][y];
+            m_earth[x][y] = nullptr;
         }
     }
+    
+    //destruct Actor
+    vector<Actor*>::iterator itr = m_actors.begin();
+    while (itr != m_actors.end())
+    {
+        delete (*itr);
+        (*itr) = nullptr;
+        ++itr;
+    }
+    
 }
 
 // Students:  Add code to this file (if you wish), StudentWorld.h, Actor.h and Actor.cpp

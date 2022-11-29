@@ -23,9 +23,7 @@ public:
 
     StudentWorld(std::string assetDir) : GameWorld(assetDir), m_player(nullptr) {}
 
-    ~StudentWorld() {
-        cleanUp();
-    }
+    virtual ~StudentWorld();
 
     Actor* get_Tunnelman();
 

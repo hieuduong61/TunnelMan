@@ -146,7 +146,8 @@ void Tunnelman::doSomething()
                 break;
             case KEY_PRESS_ESCAPE:
                 //implement
-                getWorld()->decLives();
+                while (getWorld()->getLives() != 0)
+                    getWorld()->decLives();
                 break;
             case KEY_PRESS_TAB:
                 //implement
