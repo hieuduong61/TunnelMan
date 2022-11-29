@@ -1,3 +1,4 @@
+
 #include "Actor.h"
 #include "GameWorld.h"
 #include "GameConstants.h"
@@ -20,6 +21,8 @@ void Actor::setHP(int value) {m_HP = value;}
 
 bool Actor::m_isDead() {return ((m_HP <= 0) ? true:false);}
 
+void Actor::doSomething(){};
+
 //END ACTOR DEF
 
 
@@ -31,10 +34,10 @@ Tunnelman::Tunnelman(StudentWorld* world,int startX, int startY, int imageID,  i
 
 void Tunnelman::moveToDir(Direction d)
 {
-    const int MAX_UP = 63;
-    const int MAX_DOWN = 3;
+    const int MAX_UP = 60;
+    const int MAX_DOWN = 0;
     const int MAX_LELF = 0;
-    const int MAX_RIGHT = 59;
+    const int MAX_RIGHT = 60;
     //Move to Dir: if tunnelman is not facing to the dir, then do so. If tunnelman is facing to the dir then move by 1 unit. If it reaches the dead end then it won't move.
     switch(d)
     {
@@ -81,8 +84,28 @@ void Tunnelman::moveToDir(Direction d)
 
 bool Tunnelman::dig()
 {
-    if ()   
-    return true;
+    //case top
+    if (getWorld()->isEarth(getX(), getY() + 3) || getWorld()->isEarth(getX() + 1, getY() + 3) || getWorld()->isEarth(getX() + 2, getY() + 3) || getWorld()->isEarth(getX() + 3, getY() + 3) || getWorld()->isEarth(getX(), getY()) || getWorld()->isEarth(getX() + 1, getY()) || getWorld()->isEarth(getX() + 2, getY()) || getWorld()->isEarth(getX() + 3, getY()) || getWorld()->isEarth(getX(), getY()) || getWorld()->isEarth(getX(), getY() + 1) || getWorld()->isEarth(getX(), getY() + 2) || getWorld()->isEarth(getX(), getY() + 3) || getWorld()->isEarth(getX()  + 3, getY()) || getWorld()->isEarth(getX() + 3, getY() + 1) || getWorld()->isEarth(getX() + 3, getY() + 2) || getWorld()->isEarth(getX() + 3, getY() + 3))
+        {
+        getWorld()->digEarth(getX(), getY() + 3);
+        getWorld()->digEarth(getX() + 1, getY() + 3);
+        getWorld()->digEarth(getX() + 2, getY() + 3);
+        getWorld()->digEarth(getX() + 3, getY() + 3);
+        getWorld()->digEarth(getX(), getY());
+        getWorld()->digEarth(getX() + 1, getY());
+        getWorld()->digEarth(getX() + 2, getY());
+        getWorld()->digEarth(getX() + 3, getY());
+        getWorld()->digEarth(getX(), getY());
+        getWorld()->digEarth(getX(), getY() + 1);
+        getWorld()->digEarth(getX(), getY() + 2);
+        getWorld()->digEarth(getX(), getY() + 3);
+        getWorld()->digEarth(getX() + 3, getY());
+        getWorld()->digEarth(getX() + 3, getY() + 1);
+        getWorld()->digEarth(getX() + 3, getY() + 2);
+        getWorld()->digEarth(getX() + 3, getY() + 3);
+        return true;
+    }
+        return false;
 }
 
 void Tunnelman::doSomething()

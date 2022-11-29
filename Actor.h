@@ -2,9 +2,8 @@
 #define ACTOR_H_
 
 #include "GraphObject.h"
-#include "StudentWorld.h"
 // Students:  Add code to this file, Actor.cpp, StudentWorld.h, and StudentWorld.cpp
-
+class StudentWorld;
 //Actor Declare
 class Actor: public GraphObject
 {
@@ -16,7 +15,7 @@ public:
     virtual StudentWorld* getWorld();
     virtual int getHP() const;
     virtual void setHP(int value);
-    virtual void doSomething() = 0;
+    virtual void doSomething();
     virtual bool m_isDead();
 
 private:
@@ -35,10 +34,10 @@ const int DEFAULT_GOLDNUGGET = 0;
 class Tunnelman: public Actor
 {
 public:
-    Tunnelman(StudentWorld* world, int startX, int startY, int imageID = TID_PLAYER, int hitPoints = DEFAULT_HITPOINTS, int water = DEFAULT_WATER, int sonarCharge = DEFAULT_SONARCHARGE, int goldNugget = DEFAULT_GOLDNUGGET);
+    Tunnelman(StudentWorld* world, int startX, int startY, int imageID = TID_PLAYER, int hp = DEFAULT_HITPOINTS, int water = DEFAULT_WATER, int sonarCharge = DEFAULT_SONARCHARGE, int goldNugget = DEFAULT_GOLDNUGGET);
     
     virtual ~Tunnelman();
-    virtual void doSomething();
+    virtual void doSomething() override;
     virtual bool dig();
     virtual void moveToDir(Direction d);
     
