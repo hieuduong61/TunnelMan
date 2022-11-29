@@ -40,6 +40,12 @@ public:
     virtual void doSomething() override;
     virtual bool dig();
     virtual void moveToDir(Direction d);
+    virtual int getWater();
+    virtual int getSonarCharge();
+    virtual int getGoldNugget();
+    virtual void setWater(int value);
+    virtual void setSonarCharge(int value);
+    virtual void setGoldNugget(int value);
     
 private:
     int m_water; //start with 5

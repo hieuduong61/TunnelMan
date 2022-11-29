@@ -32,6 +32,13 @@ Tunnelman::Tunnelman(StudentWorld* world,int startX, int startY, int imageID,  i
     setVisible(true);
 }
 
+int Tunnelman::getWater(){return m_water;}
+int Tunnelman::getSonarCharge(){return m_sonarCharge;}
+int Tunnelman::getGoldNugget(){return m_goldNugget;}
+void Tunnelman::setWater(int value){m_water = value;}
+void Tunnelman::setSonarCharge(int value){m_sonarCharge = value;}
+void Tunnelman::setGoldNugget(int value){m_goldNugget = value;}
+
 void Tunnelman::moveToDir(Direction d)
 {
     const int MAX_UP = 60;
